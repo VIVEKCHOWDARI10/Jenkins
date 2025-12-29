@@ -34,7 +34,7 @@ curl -LO https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_Lin
 ```
 
 
-## extract it 
+ Extract it 
 ``` bash 
 tar -xzf eksctl_Linux_arm64.tar.gz
 ```
@@ -43,7 +43,7 @@ move to the system path :
 ```bash 
 sudo mv eksctl /usr/local/bin/
 ```
-# now create a EKS cluster 
+# Now create a EKS cluster 
 ``` bash 
 eksctl create cluster \
 --name jenkins \
@@ -57,9 +57,9 @@ This will create a new ec2  instance  as Kubernetes  node ,name =Jenkins-ng-77xx
 aws eks update-kubeconfig --name jenkins --region=ap-south-1
 ```
   
-Reason:aws eks update-kubeconfig --name <cluster> updates the local kubeconfig so kubectl can connect to the EKS cluster with proper credentials and endpoint
+Reason: aws eks update-kubeconfig --name <cluster> updates the local kubeconfig so kubectl can connect to the EKS cluster with proper credentials and endpoint
 
-## create ec2 instance :
+## Create EC2 instance :
   Ssh into the ec2 using .pem
   ``` bash 
   Cd Downloads 
