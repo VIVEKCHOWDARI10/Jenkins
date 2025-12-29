@@ -1,4 +1,4 @@
-Implementation of a CI/CD workflow
+Implementation of a CI/CD workflow :
 
 
 1. Create an EC2 instance (Jenkins Host)
