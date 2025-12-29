@@ -62,14 +62,14 @@ Reason: aws eks update-kubeconfig --name <cluster> updates the local kubeconfig 
 ## Create EC2 instance :
   Ssh into the ec2 using .pem
   ``` bash 
-  Cd Downloads 
-  Chmod 400 keypair.pem 
+  cd Downloads 
+  chmod 400 keypair.pem 
   ssh -i  keypair.pem ubuntu@ec2-ip
 ```
 
 Make the ssh stay long time without logged out:
 ``` bash 
-Vi ~/.ssh/config
+vi ~/.ssh/config
 ```
 
 Add this :
@@ -195,8 +195,8 @@ No SSH keys needed.
 
 # Here you can  get the public key 
 ``` bash 
-Su - jenkins 
-Cat /var/lib/jenkins/.ssh/id_rsa.pub
+su - jenkins 
+cat /var/lib/jenkins/.ssh/id_rsa.pub
 ``` 
 
 Go to the GitHub and add the public key in the GitHub -> settings -> ssh and gpg keys  -> new shh key ->  add the key 
@@ -213,7 +213,7 @@ cat /var/lib/jenkins/.ssh/id_rsa
 Now add the first part of the the pipeline and build it we will get the error  so go the jenkins user of ec2 and clone the repo normally so it  will add the gihub id to the host so now if u want u can delete the file u got and again start building , now it will work
 
 ``` bash 
-Cd /tmp 
+cd /tmp 
 git clone git@github.com:jmbharathram/SampleJavaApps.git
 rm  -rf SampleJavaApps
 ```
@@ -291,7 +291,7 @@ DOCKER_IMAGE = “vivekchowdari/springapi:${BUILD_NUMBER}
 
 Don’t forgot to restart jenkins as we installed couple of things 
 ``` bash 
-Sudo systemctl restart jenkins
+sudo systemctl restart jenkins
 ```
 ``` bash 
 pipeline {
@@ -381,7 +381,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 👉All pods are automatically created 
 ``` bash 
-Kubectl get pods 
+kubectl get pods 
 kubectl get service
 ```
 
@@ -452,7 +452,7 @@ pipeline {
 
 👉Go to the utm :
 ``` bash 
-Kubectl get services
+kubectl get services
 ``` 
 
 👉 copy the  external ip of the springapi-service 
