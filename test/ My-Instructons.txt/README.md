@@ -120,7 +120,9 @@ sudo systemctl status jenkin
 ```
 
 Access the Jenkins intial code at :       
-``` bash cat /var/lib/jenkins/secrets/initialAdminPassword ```
+``` bash
+cat /var/lib/jenkins/secrets/initialAdminPassword 
+```
 
 
 # Install Git
@@ -155,14 +157,16 @@ source ~/.bashrc
 
 
 👉 Login to the Jenkins and install docker pipeline and maven integration plugin
+
 👉 Go to tools and add maven and give the path to it (that we downloaded before ), Type mvn —version there you can find the path 
-                                    Or 
+
+                                    
 You can directly add maven and its version in Jenkins, add maven option will download that 
 
 
 
 Now  create a pipeline and add the script normally but take only checkout stage ,here u need to configure the Jenkins and git (I mean connectivity  between them ). 
-# create a key pair and store the public key in the git  and private key in the jenkins 
+## create a key pair and store the public key in the git  and private key in the jenkins 
 
 
 ## Jenkins-Github Integration
@@ -198,8 +202,9 @@ Cat /var/lib/jenkins/.ssh/id_rsa.pub
 Go to the GitHub and add the public key in the GitHub -> settings -> ssh and gpg keys  -> new shh key ->  add the key 
    
 
-👉 here u get the private key ,Go to the jenkins and add the private  key in the credentials global    
-kind= ssh username with private key    and add key at private -> direct add
+👉 here u get the private key ,Go to the jenkins and add the private  key in the credentials global  
+
+kind= ssh username with private key   and add key at private -> direct add
 ``` bash
 cat /var/lib/jenkins/.ssh/id_rsa
 ```
@@ -267,14 +272,15 @@ Now add the build step :
 
 👉Now we have .jar file In the /target/
 
-👉 Now add another step but In this  Jenkins try to connect to the docker so u need to add the credentials (username and password of your docker hub)  With  docker-secret as id as we used this in code
+👉 Now add another step but In this  Jenkins try to connect to the docker so u need to add the credentials (username and password of your docker hub)  With  docker-secret as id ,as we used this in code
 
 
 👉 Before building it ,switch to the root user in the ec2 and restart the jenkins (Important)
 Now build it again if we ge the image error ,change the image and also the docker image name 
 
 
- ####### Skip:::
+######## skip:
+
 
 FROM eclipse-temurin:17-jdk
 
