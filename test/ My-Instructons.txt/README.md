@@ -18,8 +18,11 @@ aws configure
 ```
 Enter:
 AWS Access Key ID: xxxx
+
 AWS Secret Access Key: xxxx
+
 Region: ap-south-1
+
 Output format: json
 
 
@@ -36,7 +39,7 @@ curl -LO https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_Lin
 tar -xzf eksctl_Linux_arm64.tar.gz
 ```
 
-##move to the system path :
+move to the system path :
 ```bash 
 sudo mv eksctl /usr/local/bin/
 ```
@@ -59,20 +62,22 @@ Reason:aws eks update-kubeconfig --name <cluster> updates the local kubeconfig s
 ## create ec2 instance :
   Ssh into the ec2 using .pem
   ``` bash 
-    Cd Downloads 
-    Chmod  400 keypair.pem 
-    ssh    -i  keypair.pem    ubuntu@ec2-ip
+  Cd Downloads 
+  Chmod 400 keypair.pem 
+  ssh -i  keypair.pem ubuntu@ec2-ip
 ```
 
 Make the ssh stay long time without logged out:
+``` bash 
 Vi ~/.ssh/config
-
+```
 
 Add this :
-
+``` bash 
 Host *
   ServerAliveInterval 30
   ServerAliveCountMax 120
+```
 
 If u want to change to the root user type   
 ``` bash
@@ -81,7 +86,7 @@ exit
 ```
 
 
-5.install java and jenkins in the ec2 instance 
+Install java and jenkins in the ec2 instance 
 
 
 # Install Java (JDK 17)
@@ -106,7 +111,7 @@ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
  apt update -y
 apt install jenkins -y
 ```
- ## this will install jenkins as a separate user in the ec2  machine 
+ ## This will install Jenkins as a separate user in the ec2  machine 
 ``` bash 
 apt update -y
 sudo systemctl start jenkins
@@ -142,22 +147,21 @@ mvn -version
 
 # Add these to .bashrc
 ``` bash 
-export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
+export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java)))) 
 export MAVEN_HOME=/usr/share/maven
-export PATH=$PATH:$MAVEN_HOME/bin
+export PATH=$PATH:$MAVEN_HOME/bin                        
 source ~/.bashrc
 ```
 
 
 👉 Login to the Jenkins and install docker pipeline and maven integration plugin
-👉 Go to tools and add maven and give the path to it (that we downloaded before ),Type mvn —version there you can find the path 
+👉 Go to tools and add maven and give the path to it (that we downloaded before ), Type mvn —version there you can find the path 
                                     Or 
 You can directly add maven and its version in Jenkins, add maven option will download that 
 
 
 
-
-Now  create a pipeline and add the script normally but take only  checkout stage ,here u need to configure the Jenkins and git (I mean connectivity  between them ). 
+Now  create a pipeline and add the script normally but take only checkout stage ,here u need to configure the Jenkins and git (I mean connectivity  between them ). 
 # create a key pair and store the public key in the git  and private key in the jenkins 
 
 
@@ -168,9 +172,12 @@ sudo -u jenkins ssh-keygen -t rsa -b 4096 -C "vivekchowdari10@gmail.com"
 
 
 👉 Creates an SSH key pair:
+
 * Private key → stays on Jenkins
+  
 * Public key → shared with GitHub / server
-We generate an SSH key under the Jenkins user so Jenkins can securely authenticate to GitHub or servers without human intervention in CI/CD pipelines.”
+
+We generate an SSH key under the Jenkins user so Jenkins can securely authenticate to GitHub or servers without human intervention in CI/CD pipelines.
 
 For production-level DevOps:
 ✅ SSH keys
