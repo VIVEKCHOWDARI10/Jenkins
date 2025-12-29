@@ -41,7 +41,7 @@ pipeline {
                     sh """
                     git config --global user.email "executeoncommand@gmail.com"
                     git config --global user.name "Bharath Ram"
-                    cd Manifests/
+                    cd  MyJenkins/Manifests/
                     sed -i 's,jmbharathram/springapi.*,jmbharathram/springapi:${BUILD_NUMBER},g' deployment.yaml
                     cat deployment.yaml
                     git add deployment.yaml
