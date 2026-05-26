@@ -191,6 +191,7 @@ For production-level DevOps:
 HOW TOKEN METHOD WORKS (SIMPLE)
 1️⃣ GitHub → Generate token 2️⃣ Jenkins → Store token securely 3️⃣ Jenkins uses token when running git clone
 No SSH keys needed.
+2. This way is much simpler ,go to credentials add the github token using username and password and then  go to pipeline script and then click on pipeline script and then add github token there so it will give you the script ,, done paste the script 
 
 
 # Here you can  get the public key 
