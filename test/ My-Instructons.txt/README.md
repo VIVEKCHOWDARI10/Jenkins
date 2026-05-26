@@ -21,6 +21,8 @@ AWS Access Key ID: xxxx
 
 AWS Secret Access Key: xxxx
 
+This you can get it  by creating the  iam user  in the aws and then creating the access key in that user 
+
 Region: ap-south-1
 
 Output format: json
